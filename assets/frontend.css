@@ -1,0 +1,89 @@
+.wc-image-swatches-container {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 12px;
+	margin: 15px 0;
+}
+
+.wc-swatch {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 80px;
+	height: 80px;
+	border: 2px solid #ddd;
+	border-radius: 4px;
+	cursor: pointer;
+	transition: all 0.2s ease;
+	overflow: hidden;
+	background: #fff;
+	position: relative;
+}
+
+.wc-swatch:hover:not(.wc-swatch--unavailable) {
+	border-color: #999;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.wc-swatch img {
+	max-width: 100%;
+	max-height: 100%;
+	object-fit: cover;
+}
+
+.wc-swatch__fallback {
+	font-size: 12px;
+	font-weight: 500;
+	color: #666;
+	text-align: center;
+	padding: 8px;
+}
+
+.wc-swatch input[type="radio"] {
+	position: absolute;
+	opacity: 0;
+	width: 0;
+	height: 0;
+	cursor: pointer;
+}
+
+/* Selected state - using :has() with JavaScript fallback */
+.wc-swatch:has(input[type="radio"]:checked),
+.wc-swatch--selected {
+	border-color: #0073aa;
+	box-shadow: 0 0 0 2px rgba(0, 115, 170, 0.2);
+}
+
+.wc-swatch:has(input[type="radio"]:checked) img,
+.wc-swatch--selected img {
+	outline: 2px solid #0073aa;
+	outline-offset: -2px;
+}
+
+.wc-swatch:has(input[type="radio"]:checked) .wc-swatch__fallback,
+.wc-swatch--selected .wc-swatch__fallback {
+	font-weight: bold;
+	color: #0073aa;
+}
+
+/* Unavailable state */
+.wc-swatch--unavailable {
+	opacity: 0.5;
+	cursor: not-allowed;
+}
+
+.wc-swatch--unavailable:hover {
+	border-color: #ddd;
+	box-shadow: none;
+}
+
+.wc-swatch--unavailable::after {
+	content: '';
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 2px;
+	height: 60px;
+	background: #999;
+	transform: translate(-50%, -50%) rotate(45deg);
+}

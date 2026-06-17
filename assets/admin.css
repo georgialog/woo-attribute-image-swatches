@@ -1,0 +1,17 @@
+.swatch_image_button,
+.swatch_image_remove {
+	margin-right: 5px;
+	margin-bottom: 10px;
+}
+
+#swatch_image_preview {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+#swatch_image_preview img {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 2px;
+}
