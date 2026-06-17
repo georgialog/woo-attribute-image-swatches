@@ -1,0 +1,1 @@
+# woo-attribute-image-swatches
